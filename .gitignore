@@ -16,5 +16,5 @@ test/version_tmp
 tmp
 vendor
 bin
-public/shows
+public/shows/*/*
 config/shows.yml
