@@ -9,7 +9,7 @@
                 <guid><%= episode.name %></guid>
                 <pubDate><%= episode.date %></pubDate>
                 <enclosure url="<%= "http://#{hostname}/#{episode.url}" %>" length="<%= episode.length %>" type="audio/mpeg"/>
-                <itunes:image href="<%= "http://#{hostname}/episodes/#{params[:episode]}/logo.png" %>" />
+                <itunes:image href="<%= "http://#{hostname}/episodes/#{params[:show]}/logo.png" %>" />
             </item>
         <% end %>
     </channel>
