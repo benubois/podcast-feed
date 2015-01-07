@@ -3,7 +3,7 @@
     <body>
         <ul>
             <% shows.each do |show, data| %>
-                <li><a href="/show/<%= show %>"><%= data[:title] %></a></li>
+                <li><a href="/show/<%= show %>"><%= data['title'] %></a></li>
             <% end %>
         </ul>
     </body>

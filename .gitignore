@@ -17,3 +17,4 @@ tmp
 vendor
 bin
 public/shows
+config/shows.yml

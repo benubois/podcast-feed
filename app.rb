@@ -5,17 +5,13 @@ Bundler.setup
 require "sinatra"
 require "uri"
 require "time"
+require "yaml"
 
 require "./episode"
 
-$shows = {
-  "howard_stern" => {
-    title: "Howard Stern"
-  },
-  "daves_of_thunder" => {
-    title: "Daves of Thunder"
-  }
-}
+def shows
+  @shows ||= YAML.load_file('config/shows.yml')
+end
 
 def build_episodes(show)
   Dir.glob("./public/shows/#{show}/*.mp3").reverse.each_with_object([]) do |file, array|
@@ -25,7 +21,7 @@ end
 
 get "/" do
   erb :index, locals: {
-    shows: $shows
+    shows: shows
   }
 end
 
@@ -33,7 +29,7 @@ get "/show/:show" do
   content_type 'text/xml'
   episodes = build_episodes(params[:show])
   erb :show, locals: {
-    show: $shows.fetch(params[:show]),
+    show: shows.fetch(params[:show]),
     episodes: episodes,
     hostname: request.host
   }
