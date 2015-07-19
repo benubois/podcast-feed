@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
     <channel>
-        <title>Howard Stern</title>
+        <title><%= show["title"] %></title>
         <itunes:image href="<%= "http://#{hostname}/shows/#{params[:show]}/logo.png" %>" />
         <% episodes.each do |episode| %>
             <item>
